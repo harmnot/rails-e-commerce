@@ -1,0 +1,5 @@
+%div.d-flex.justify-content-center.py-3#papaya
+  - product.errors.messages.each do |msg|
+    %span.mx-1
+      = msg.last.last
+      ,
