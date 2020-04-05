@@ -26,5 +26,10 @@
           %br/
           .col-sm-8
             = f.text_area :desc, class: 'form-control'
+        .form-group.row
+          = f.label "Photo",  class: 'col-md-2 col-form-label'
+          %br/
+          .col-sm-8
+            = f.file_field :photo, class: 'form-control-file'
         .d-flex.justify-content-center
           = f.submit "Add", class: 'btn btn-primary col-sm-8 p-2', remote: true

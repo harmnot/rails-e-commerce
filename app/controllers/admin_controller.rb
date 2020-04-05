@@ -15,6 +15,7 @@ class AdminController < ApplicationController
       if @product.save
         format.html { redirect_to :root }
       else
+        puts "ERRRORR HERE"
         format.js { render 'admin/error' }
       end
     end
@@ -23,7 +24,7 @@ class AdminController < ApplicationController
   private
 
   def product_values
-    params.require(:product).permit(:name, :stock, :price, :desc)
+    params.require(:product).permit(:name, :stock, :price, :desc, :photo)
   end
 
 
