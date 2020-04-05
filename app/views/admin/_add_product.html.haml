@@ -5,7 +5,7 @@
         %h3
           Add Product
     %div
-      = form_for (@product || Product.new), remote: true  do |f|
+      = form_for (@product),remote: true  do |f|
         .form-group.row
           = f.label :name,  class: 'col-md-2 col-form-label'
           %br/
@@ -32,4 +32,4 @@
           .col-sm-8
             = f.file_field :photo, class: 'form-control-file'
         .d-flex.justify-content-center
-          = f.submit "Add", class: 'btn btn-primary col-sm-8 p-2', remote: true
+          = f.submit "Add", class: 'btn btn-primary col-sm-8 p-2'

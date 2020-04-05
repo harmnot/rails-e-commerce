@@ -1,8 +1,13 @@
 class AdminController < ApplicationController
-  before_action :get_role
+  before_action :get_role, only: %i[create index]
 
   def index
+    @products = Product.all
     @product = Product.new
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -12,14 +17,14 @@ class AdminController < ApplicationController
   def create
     @product = Product.new product_values
     respond_to do |format|
-      if @product.save
-        format.html { redirect_to :root }
-      else
-        puts "ERRRORR HERE"
-        format.js { render 'admin/error' }
-      end
+      format.js {
+        @products = Product.where(id: @product.id) if @product.save
+        render 'admin/list'
+      }
     end
   end
+
+
 
   private
 
@@ -31,9 +36,7 @@ class AdminController < ApplicationController
   protected
 
   def get_role
-    if !user_signed_in? || !current_user.admin?
-      redirect_to :root
-    end
+    redirect_to :root if !user_signed_in? || !current_user.admin?
   end
 
 end

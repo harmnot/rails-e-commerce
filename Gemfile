@@ -27,6 +27,7 @@ gem 'devise'
 gem 'hirb'
 gem "aws-sdk-s3", require: false
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'image_processing', "~> 1.2"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

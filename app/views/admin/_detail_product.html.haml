@@ -1,0 +1,28 @@
+%div.my-5{:class => "#{is_show ? 'col-sm-6' : 'col-sm-3'}"}
+  -if !is_show
+    = link_to "products/#{@product.id}" do
+      .card
+        .card-body
+          .p-2
+            .p-1.wrapper
+              = image_tag url_for(@product.photo), class: 'img-fluid'
+  - else
+    .card
+      .card-body
+        .p-2
+          .p-1.wrapper
+            = image_tag url_for(@product.photo), class: 'img-fluid'
+  .text-center.my-3
+    .p-1
+      - if is_show
+        %h3
+          = @product.name
+      - else
+        %span
+          = @product.name
+    .p-1
+      %span
+        = pluralize(@product.stock, 'stock', 'stocks')
+    .p-1
+      %span
+        = number_to_currency(@product.price, separator: ',')

@@ -1,0 +1,9 @@
+<% if @product.save %>
+  $('#new_product')[0].reset()
+  var doPartial = "<%= escape_javascript(render partial: "admin/detail_product", locals: { :@product => @product, is_show: false }) %>"
+  $('#list-product').prepend(doPartial);
+<% else %>
+  var doPartialError = "<%= escape_javascript(render partial: "admin/error_message", locals: { product: @product }) %>"
+  $( "#papaya" ).remove();
+  $('#this-error').after(doPartialError);
+<% end %>
