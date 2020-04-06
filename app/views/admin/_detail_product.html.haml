@@ -1,6 +1,6 @@
-%div.my-5{:class => "#{is_show ? 'col-sm-6' : 'col-sm-3'}"}
+%div.my-5{:class => "#{is_show ? 'col-sm-6' : 'col-xs-8 col-sm-3'}"}
   -if !is_show
-    = link_to "products/#{@product.id}" do
+    = link_to product_path(@product.id) do
       .card
         .card-body
           .p-2
@@ -10,8 +10,14 @@
     .card
       .card-body
         .p-2
-          .p-1.wrapper
+          .p-1.wrapper.wrap
             = image_tag url_for(@product.photo), class: 'img-fluid'
+            - if user_signed_in? && current_user.admin?
+              .top-right.text-right.d-flex.flex-row
+                %div
+                  EDIT
+                %div.ml-4#del-product{data: { id: "#{@product.id}" } }
+                  DELETE
   .text-center.my-3
     .p-1
       - if is_show

@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  before_action :get_role, only: %i[create index]
+  before_action :role_admin,  only: %i[create index]
 
   def index
     @products = Product.all
@@ -24,18 +24,15 @@ class AdminController < ApplicationController
     end
   end
 
-
-
   private
 
   def product_values
     params.require(:product).permit(:name, :stock, :price, :desc, :photo)
   end
 
-
   protected
 
-  def get_role
+  def role_admin
     redirect_to :root if !user_signed_in? || !current_user.admin?
   end
 

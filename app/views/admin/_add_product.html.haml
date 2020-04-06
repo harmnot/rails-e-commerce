@@ -5,31 +5,4 @@
         %h3
           Add Product
     %div
-      = form_for (@product),remote: true  do |f|
-        .form-group.row
-          = f.label :name,  class: 'col-md-2 col-form-label'
-          %br/
-          .col-sm-8
-            = f.text_field :name, class: 'form-control'
-        .form-group.row
-          = f.label :stock,  class: 'col-md-2 col-form-label'
-          %br/
-          .col-sm-2
-            = f.number_field :stock, class: 'form-control'
-          .my-4
-          = f.label :price,  class: 'ml-5 col-md-1 col-form-label'
-          %br/
-          .col-sm-2
-            = f.number_field :price, class: 'form-control'
-        .form-group.row
-          = f.label :desc,  class: 'col-md-2 col-form-label'
-          %br/
-          .col-sm-8
-            = f.text_area :desc, class: 'form-control'
-        .form-group.row
-          = f.label "Photo",  class: 'col-md-2 col-form-label'
-          %br/
-          .col-sm-8
-            = f.file_field :photo, class: 'form-control-file'
-        .d-flex.justify-content-center
-          = f.submit "Add", class: 'btn btn-primary col-sm-8 p-2'
+      = render partial: "admin/form"

@@ -1,4 +1,7 @@
-%h1
-  Public#index
-%p
-  Find me in app/views/public/index.html.haml
+%div
+  %div.container.wrap
+    = image_tag "print2.jpg", class: 'img-fluid'
+    .p-5.top-left
+      %h3{style: 'font-size: 32px; font-weight: 600; letter-spacing: 5.6px;'} PAY WHAT YOU WANT
+  %div
+    = render partial: "admin/list_product"
