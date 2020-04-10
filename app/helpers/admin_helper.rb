@@ -1,5 +1,5 @@
 module AdminHelper
-  def while_waiting(val = false)
-    val
+  def show_this_if_admin
+    true if user_signed_in? && current_user.admin?
   end
 end

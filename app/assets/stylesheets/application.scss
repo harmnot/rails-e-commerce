@@ -27,3 +27,32 @@ a {
     color: #3b5cb0;
   }
 }
+
+.top-right {
+  position: absolute;
+  right: 0;
+}
+
+
+.ico {
+ .ii {
+   visibility: hidden;
+   opacity:0.5;
+ }
+  &:hover {
+    .ii {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+
+.fa-trash, .fa-pencil {
+  transition: all 0.4s;
+  font-size: 18px;
+  &:hover {
+    font-size: 25px;
+    transition: all 0.4s;
+  }
+}

@@ -19,10 +19,17 @@
     %br/
     .col-sm-8
       = f.text_area :desc, class: 'form-control'
-  .form-group.row
+  .form-row{style: @product.photo.attached?  ? 'margin-bottom: 27px' : ''}
     = f.label "Photo",  class: 'col-md-2 col-form-label'
     %br/
-    .col-sm-8
-      = f.file_field :photo, class: 'form-control-file'
+    .col-md-3.my-auto
+      = f.file_field :photo, class: 'form-control-file photo_upload'
+    - if @product.photo.attached?
+      .col-md-4.my-auto#image_here
+        = image_tag @product.photo.variant(resize_to_limit: [40, 40]).processed.service_url
   .d-flex.justify-content-center
-    = f.submit "Add", class: 'btn btn-primary col-sm-8 p-2'
+    - if request.path != admin_path
+      = f.submit "Update", class: 'btn btn-primary col-sm-8 p-2', controller: 'admin', method: :put
+    - else
+      = f.submit "Submit", class: 'btn btn-primary col-sm-8 p-2'
+= javascript_pack_tag "image_preview"
