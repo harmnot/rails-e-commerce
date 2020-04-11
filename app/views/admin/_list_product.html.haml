@@ -1,5 +1,5 @@
 .container
-  %div.row#list-product
+  %div.section-grid#list-product
     - @products.reverse.each do |p|
       = render partial: "admin/detail_product", locals: { :@product => p, is_show: false }
 

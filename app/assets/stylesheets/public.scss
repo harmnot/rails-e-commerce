@@ -11,3 +11,15 @@
   top: 8px;
   left: 16px;
 }
+
+.do-flex {
+  display: flex;
+  flex-wrap: wrap;
+  //box-sizing: border-box;
+}
+
+.do-flex  > div {
+  max-width: 200px;
+  background: #e0ddd5;
+  margin: 2%;
+}

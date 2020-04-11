@@ -56,3 +56,62 @@ a {
     transition: all 0.4s;
   }
 }
+
+@mixin size($type) {
+  @if $type == ipad {
+    @media (min-width: 768px) and (max-width: 1024px) {
+      @content
+    }
+  } @else if $type == ipad_landscape {
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+      @content
+    }
+  } @else if $type == mobile_landscape {
+    @media (min-width: 481px) and (max-width: 767px) {
+      @content
+    }
+  } @else if $type == desktop_laptop {
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      @content
+    }
+  } @else if $type == desktop {
+    @media (min-width: 1281px) {
+      @content
+    }
+  } @else {
+    @media (min-width: 320px) and (max-width: 480px) {
+      @content
+    }
+  }
+}
+
+.m-nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.m-nav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.5s;
+}
+
+
+.m-nav #m-click {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}

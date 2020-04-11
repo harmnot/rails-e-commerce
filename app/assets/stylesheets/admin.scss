@@ -8,7 +8,7 @@
 
 .wrapper:after {
   content: '';
-  display: block;
+  display: flex;
   padding-top: 100%;
 }
 .wrapper img {
@@ -27,4 +27,44 @@
   text-align: center;
 }
 
+.section-grid {
+  max-width: 1200px;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+}
+
+.item-here {
+  width: 195px;
+  margin: 2% 1%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+@mixin size($type) {
+  @if $type == ipad {
+    @media (min-width: 768px) and (max-width: 1024px) {
+      @content
+    }
+  } @else if $type == ipad_landscape {
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+      @content
+    }
+  } @else if $type == mobile_landscape {
+    @media (min-width: 481px) and (max-width: 767px) {
+      @content
+    }
+  } @else {
+    @media (min-width: 320px) and (max-width: 480px) {
+      @content
+    }
+  }
+}
+
+@include size(ipad) {
+  .item-here {
+    width: 160px;
+  }
+}
 

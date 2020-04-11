@@ -36,7 +36,7 @@ class AdminController < ApplicationController
 
   def destroy
     Product.find_by(id: params[:id]).destroy
-    redirect_to admin_path
+    redirect_back(fallback_location: root_path)
   end
 
   private
