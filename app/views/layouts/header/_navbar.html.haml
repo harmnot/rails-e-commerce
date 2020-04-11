@@ -12,7 +12,10 @@
         %span#m-click
           &#9776;
       .p-2
-        %h5 logo
+        .p-0
+          = link_to '/' do
+            %span{style: 'font-size: 23px;'}
+              %strong{style: 'letter-spacing: 4px; color: chocolate'} Pr
   #desktop
     .d-flex.flex-row.justify-content-between
       .p-2
@@ -30,6 +33,9 @@
         %div.p-2
           %span{style: 'font-weight: 400;'} CONTACT US
         - if user_signed_in?
+          - if current_user.client?
+            %div.ml-4.mr-2.mt-2{style: 'cursor: pointer'}
+              %i.fas.fa-shopping-cart{style: 'font-size: 23px'}
           %div.mx-2
           = link_to "Log out",  destroy_user_session_path, :method => :delete, :class => 'btn btn-outline-danger'
         - else

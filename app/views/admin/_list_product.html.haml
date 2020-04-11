@@ -1,4 +1,5 @@
 .container
+  = javascript_pack_tag 'add_cart'
   %div.section-grid#list-product
     - @products.reverse.each do |p|
       = render partial: "admin/detail_product", locals: { :@product => p, is_show: false }

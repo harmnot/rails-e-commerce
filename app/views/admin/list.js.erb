@@ -1,4 +1,3 @@
-console.log("herr")
 <% if @product.save %>
   $('#new_product')[0].reset()
   var doPartial = "<%= escape_javascript(render partial: "admin/detail_product", locals: { :@product => @product, is_show: false }) %>"
